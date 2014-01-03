@@ -96,32 +96,61 @@ void TreeSet<T>::insertAtRoot(Node*& here, const T& insertee)
     } 
 }
 
-template <typename T> 
-void TreeSet<T>::rightRotate(Node*& top) 
+/**
+ * Rotates the tree to the left.
+ * \param top is b in the diagram.
+ *
+ *        b                       d
+ *       / \                     / \
+ *      /   \                   /   \
+ *     A     d       ==>       b     E
+ *          / \               / \
+ *         /   \             /   \
+ *        C     E           A     C
+ */
+template <typename T>
+void TreeSet<T>::leftRotate(Node*& top)
 {
-    // b is d's left child
-    Node* b = top->left_;
-    b->nodeSize_ = top->nodeSize_;
-    // C becomes left child of d
-    top->left_= b->right_;
-    // d becomes right child of b       
-    b->right_= top;
-    // top is now b              
-    top = b;                    
-}    
+    assert(top != nullptr);
+    assert(top->right_ != nullptr);
 
-template <typename T> 
-void TreeSet<T>::leftRotate(Node*& top) 
+    Node* b = top;
+    Node* d = b->right_;        // d is b's right child
+    b->right_ = d->left_;       // C becomes right child of b
+    d->left_ = b;               // b becomes left child of d
+    top = d;                    // top is now d
+
+    b->size_ -= sizeNode(d->right_) + 1;
+    d->size_ += sizeNode(b->left_)  + 1;
+}
+
+
+/**
+ * Rotates the tree to the right.
+ * \param top is d in the diagram.
+ *
+ *           d                 b
+ *          / \               / \
+ *         /   \             /   \
+ *        b     E    ==>    A     d
+ *       / \                     / \
+ *      /   \                   /   \
+ *     A     C                 C     E
+ */
+template <typename T>
+void TreeSet<T>::rightRotate(Node*& top)
 {
-    // d is b's right child 
-    Node* d = top->right_;
-    d->nodeSize_ = top->nodeSize_;
-    // C becomes right child of b 
-    top->right_= d->left_;
-    // b becomes left child of d      
-    d->left_= top; 
-    // top is now d                
-    top = d;                    
+    assert(top != nullptr);
+    assert(top->left_ != nullptr);
+
+    Node* d  = top;
+    Node* b  = d->left_;        // b is d's left child
+    d->left_ = b->right_;       // C becomes left child of d
+    b->right_ = d;              // d becomes right child of b
+    top = b;                    // top is now b
+
+    d->size_ -= sizeNode(b->left_)  + 1;
+    b->size_ += sizeNode(d->right_) + 1;
 }
 
 template <typename T>
