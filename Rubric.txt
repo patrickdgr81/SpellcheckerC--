@@ -1,0 +1,650 @@
+===============================================================================
+BINARY TREES & INHERITANCE ASSIGNMENT -- GRADING RUBRIC
+===============================================================================
+
+NAMES: Lu Wenhao, Wang Xiaotian (wlu-xwang)
+
+===============================================================================
+SUBMISSION. Total =    / 12
+===============================================================================
+
+-----
+FILES
+-----
+
++++>All of our files appear correctly in the subversion repository.
+
+  2) All required files appear correctly in the subversion repository.
+
+  1) Added unnecessary files to the subversion repository 
+       (e.g., compiled binaries).
+
+  0) Missing some files.
+
+-------------
+TESTABILITY *
+-------------
+ 
++++>Our output is correctly and clearly formatted, and our interfaces are
++++>consistent with specifications.
+
+  3) Output is correctly formatted, with the correct number of spaces.
+
+     Output is properly sent to the correct stream (e.g., cout vs cerr).
+
+     There is no other output beyond what is specified in the assignment.
+
+     Interfaces are consistent with assignment specifications.
+
+     Test code can use the required class templates (e.g., TreeSet) by
+       including their header file without any prior definitions. No additional
+       files need to be linked against the code.
+
+  2) Trivial issues with output.
+
+  1) Trivial issues with interfaces.
+
+  0) Non-trivial issues.
+
+-----
+TOOLS
+-----
+
++++>We add names and group name to each of the file we edited.
++++>Also, our oxygen comments appear properly in both HTML and LaTeX form.
+
+--->As we are trying to change something right before the due and did
+--->not do linecheck after commit, we did not pass linecheck at 3 places.
+
+  1) Names of group are in all files.
+
+     Passes linecheck (except for Makefile or output copied from terminal).
+
+     Doxygen comments appear properly in both HTML and LaTeX form.
+
+0.5) Passes linecheck, but names of group members are missing.
+
+     AND/OR, Doxygen comment formatting has trivial problems.
+
+  0) Linecheck produces unauthorized output.
+
+     AND/OR, Doxygen comment formatting has severe problems.
+
+-------------
+COMPILATION *
+-------------
+
++++>we can make without any warnings.
+
+  6) Running "make" creates the myspell program without any warnings 
+       (when the compiler is run with -Wall -Wextra -pedantic).
+     
+     AND, running "make test" creates and runs all tests without any
+       warnings.
+
+  4) The submission compiles, but has warnings.
+
+  2) The submission does not compile due to some easily-fixable glitch.
+
+  0) The submission does not compile without moderate to significant changes.
+
+
+===============================================================================
+TESTING. Total =    / 9
+===============================================================================
+
+------------
+TEMPLATING *
+------------
+
++++>All of our templated classes work correctly on all of expected 
++++>operations.
+
+  2) Demonstrates that all templated classes work correctly on
+       expected operations.
+
+  1) Clearly shows testing, but misses an obvious case.
+
+     OR, testing is hard to follow.
+
+  0) Testing is vastly insufficient.
+
+ +1) Testing is more thorough than the sample solution.
+
+---------------
+TREESET-TESTS *
+---------------
+
++++>We showed that our tests covering all kind of cases by using
++++>clear and systematic comments.
+
+  4) Clearly shows thorough testing that covers all interesting cases
+       for the chosen treeset implementation.
+
+  3) Clearly shows testing, but a minor case is missed.
+
+  2) Clearly shows testing, but an obvious case (e.g. empty TreeSet)
+       is missed.
+
+  1) Testing is hard to follow.
+
+  0) Testing is vastly insufficient.
+
+ +1) Testing is more thorough than the sample solution.
+
+---------------
+MYSPELL-TESTS *
+---------------
+
++++>We showed that our tests covering all kind of cases by using
++++>clear and systematic comments.
+
+  3) Clearly shows thorough testing that covers all interesting cases.
+
+  2) Clearly shows testing, but a minor case is missed.
+
+  1) Clearly shows testing, but an obvious case is missed.
+
+     OR, testing is hard to follow.
+
+  0) Testing is vastly insufficient.
+
+ +1) Testing is more thorough than the sample solution.
+
+
+===============================================================================
+CORRECTNESS. Total =    / 20
+===============================================================================
+
+---------------------
+INPUT: COMMAND LINE *
+---------------------
+
++++>All of our flags work correctly.
++++>Our program does not have any memory leaks.
++++>Our program cerrs correctly with clear printing messages.
+
+  2) The -d flag is optional and creates the correct debugging output.
+
+     The -h, -t, -H, and -T flags are optional and correctly select among
+       different implementations.
+
+     The program does not leak memory, even if the user specifies too many
+       flags.
+
+     The program prints a nice error message to cerr if the given dictionary
+       file does not exist, a dictionary file is not specified on the command
+       line, or unrecognized flags are given.
+
+  1) As above, but there are restrictions in the order that flags must
+       appear (e.g., -d must come before -h).
+
+     AND/OR, there is a minor problem with the command-line
+       processing, so flags are recognized but the wrong
+       implementation is selected.
+
+     AND/OR, the program leaks memory on particular input.
+
+  0) The program cannot handle all the required flags.
+
+     AND/OR, the program crashes or silently exits with the -d flag or 
+       with invalid arguments.
+
+     AND/OR, the command-line flags have little or no effect.
+
+--------------------
+INPUT: SPELL-CHECK *
+--------------------
+
++++>The document to spell-check is read from cin and works correctly.
+  
+  1) The document to spell-check is read from cin.
+
+     Words are identified correctly.
+
+  0) Problems with the way that input is divided into words.
+
+     AND/OR, doesn't read input from cin
+
+---------------------
+OUTPUT: CORRECTNESS *
+---------------------
+
++++>We did right on order, number of appearence and the number of correction.
+
+  1) Repeated misspellings are only listed once in the output.
+
+     The correct corrections appear for each misspelling.
+
+     The misspellings are listed in the order they were encountered.
+
+  0) Duplicate misspellings lead to duplicate correction lines.
+
+     Or, problems with the suggested corrections.
+
+-------------
+AbstractSet *
+-------------
+
++++>Our abstract AbstractSet<T> exists.
++++>It contains all expected functions.
+
+  2) An abstract AbstractSet<T> exists, with a virtual destructor
+       and pure virtual insert, exists, and size functions.
+
+  1) Minor problems with AbstractSet<T>.
+
+  0) Serious problems.  
+
+---------
+TreeSet *
+---------
+
++++>Our TreeSet inherits from AbstractSet<T>.
++++>Our insert and exists functions on n-node work in O(log n) in
++++>in theory.
++++>Our program does not have any memory leaks.
++++>All of our methods from test.out seem to be correct.
+
+--->Checking our code with the solution, it seems node size is 
+--->incorrectly updated in the rotate left and
+--->rotate right parts of our code. We
+--->believe this may have impacted performance by having incorrect
+--->random chance to insert at given node (which depends on size).
+--->This may have led to suboptimal tree structures. 
+--->If this fix is implemented, the the performance could be better.
+
+  5) TreeSet<T> inherits from AbstractSet<T>.
+  
+     Insert and exists on an n-node tree work in O(log n) expected
+       amortized time.
+
+     There are no memory leaks, and the default constructor
+       works properly.
+
+     The print method and height method exist and work properly.
+
+  4) TreeSet<T> functions correctly with the exception of a few edge cases.
+
+  3) TreeSet<T> functions correctly, but leaks memory.
+
+     AND/OR, minor problems with TreeSet<T>.
+
+  2) Insert and exists work, but do not satisfy the required time
+     bounds.
+
+  1) TreeSet<T> is not a binary tree, as required in the assignment.
+
+     AND/OR, satisfies only half of the requirements for a 4.
+
+  0) Serious implementation problems.
+
+---------
+HashSet *
+---------
+
++++>Our HashSet template works and inherits from AbstractSet<T>.
+
+  2) The HashSet template works and inherits from AbstractSet<T>.
+
+  1) Minor problems.
+
+  0) Serious problems.
+
+--------
+StlSet *
+--------
+
++++>All of our standard set work and inherit from AbstractSet<T>.
+
+  2) Works and inherits from AbstractSet<T>.
+
+  1) Minor problems.
+
+  0) Serious problems.
+
+--------------
+UnorderedSet *
+--------------
+
++++>Our unorderedSet wrks and inherits from AbstractSet<T>.
+
+  2) Works and inherits from AbstractSet<T>.
+
+  1) Minor problems.
+
+  0) Serious problems.
+
+----------
+INTERFACES
+----------
+
++++>We think our division of code between both header and implementation
++++>files, public and private is proper.
+
+  3) For all required classes:
+
+     Appropriate division of code between Header Files and
+       Implementation Files.
+     
+     Appropriate division between public and private:
+     
+       Nothing is public that might change if the class were implemented
+         differently.
+
+       Nothing is private that is essential for using objects of the class.
+
+     Choice of friends makes sense.
+
+     Proper use of virtual keyword.
+
+     Appropriate disabling/implementing of Copy Constructor and Assignment
+       Operator when the compiler-synthesized versions are insufficient.
+
+  2) Minor problems present only in one class.
+
+  1) Minor problems present in all classes.
+   
+     OR, one significant problem.
+
+  0) Significant problems. 
+
+
+===============================================================================
+STYLE. Total =    / 22
+===============================================================================
+
+------
+LAYOUT
+------
+
++++>Our indentation is consistent with stroustrup style.
++++>We used the white space to keep the readability.
+
+  2) Indentation is consistent with a well-known style.
+
+     Whitespace is used to help readability.
+
+  1) Could improve whitespace between lines or operators in a few
+       places.
+
+  0) Formatting is frequently inconsistent.
+
+     AND/OR, formatting detracts significantly from readability of code.
+
+------
+NAMING
+------
+
++++>We made all names follow the rules of appropriately descriptive, and
++++>of course, in CS70 style.
+
+  2) All names are appropriately descriptive and adhere to CS70 style.
+       (e.g. CONSTANT_NAMES, localVariables, and dataMembers_).
+
+  1) All names are appropriately descriptive but don't adhere to CS70 style.
+
+     OR, a few names could be better chosen but adhere to CS70 style.
+
+  0) Names are misleading or otherwise detract from readability.
+
+---------------------
+DOXYGEN DOCUMENTATION
+---------------------
+
++++>Our Doxygen documentation explains those all important members of 
++++>each class, and how top-level function operates.
+
+  4) Explains the most important members of each class.
+
+     Explains the most important insights for understanding how each class and
+       top-level function operates.
+
+     Explains any assumptions made by a class or function (e.g., if Template<T>
+       requires that T have an addHat() method, you need to say so.).
+    
+  3) Documentation has only trivial issues.
+
+  2) Overall well done, but missing a key insight.
+
+  1) More serious problems.
+
+  0) No content added to the given.
+
+----------
+COMMENTING
+----------
+
++++>We think that our commenting is at just the right level.
++++>We also commented some of the complicated blocks in our code.
+
+--->We did not add blocks of comments because we didn't think
+--->they were necessary to understand the implementation. However,
+--->there were some locations where it may have been helpful to 
+--->include more comments, particularly in left and right rotate,
+--->where it is difficult to visualize the changes. Node also
+--->could have used some more explanation about why we include
+--->the data members we did.
+
+  4) Commenting is at just the right level.
+
+     Comments are accurate and up-to-date.
+
+     Complex blocks of code are annotated with their high-level purpose.
+
+  3) Contains comments which are frivolous or restate the operation of the
+       code.
+
+     AND/OR, comments have minor english errors.
+
+     AND/OR, contains a relatively small instance of under-comenting.
+
+  2) Contains comments which do not reflect the current state of the code
+       (e.g., neglecting to update comments provided, or commenting out code).
+
+     AND/OR, contains a fairly major instance of under-commenting.
+
+  1) Frequent under-commenting or over-commenting.
+
+     AND/OR, comments are difficult to read due to spelling or grammar.
+
+  0) Nearly (or literally) no comments.
+
+--------
+ELEGANCE
+--------
+
++++>We think that our code is pretty clear and easy to believe correct.
+
+  4) Code is clear and easy to believe correct or incorrect. 
+
+  3) Code could be clarified in a few places.
+
+     AND/OR, code has excessive nesting in a few places.
+
+  2) Code is clear, but also clearly inefficient.
+
+  1) Code is only clear due to heavy commenting but still efficient.
+
+  0) Code is frequently difficult to follow, even when reading the comments.
+    
+     AND/OR, Code is grossly inefficient.
+
+ +1) Code is more elegant than the sample solution.
+
+------
+IDIOMS
+------
+
++++>We used C++ idioms where appropriate, e.g. we used pre-increment and 
++++>pre-decrement, used for loop instead of while loop, etc.
+
+  2) Uses C++ idioms where appropriate.
+  
+     Including, but not limited to:
+        No uses of post-increment when pre-increment is sufficient.
+        Member functions refer to foo() and bar_ instead of this->foo()
+          or (*this).bar_.
+        Uses foo->bar instead of (*foo).bar.
+        Proper choice of control flow statements (e.g.: for vs while).
+        Uses c++ style casts instead of c style casts.
+        Random seed is not set more than once.
+
+  1) Code is non-idiomatic in a few places.
+
+  0) Code is frequently non-idiomatic.
+
+----------------
+UNSAFE PRACTICES
+----------------
+
++++>We used nothing that would be unsafe in a large project.
+
+  4) Uses nothing that would be unsafe in a large project.
+
+     Including, but not limited to:
+       No top-level variables.  
+       No deprecated functions.
+       No disruptive control-flow statements (i.e., goto).
+       No 'using' directives in header files.
+       No #defines except for #include guards.
+       All constants other than 0 or 1 have meaningful names (no magic
+         numbers).
+       All header files use #include guards.
+       Fill character in output streams is never permanently changed.
+
+  3) Uses a mildly unsafe practice.
+
+  2) Uses several unsafe practices.
+
+  0) Code is very unsafe.
+
+
+===============================================================================
+WRITTEN. Total =    / 12
+===============================================================================
+
+-------------
+WRITTEN STYLE
+-------------
+
++++>We think that our responses for written questions are concise, clear,
++++>and easy to understand.
+
+  4) Responses are clear, concise, and easy to understand.
+
+     AND, Responses use proper spelling and grammar.
+
+  3) A few minor english errors (e.g., spelling, grammar).
+
+  1) Frequent english errors that make responses difficult to understand.
+
+  0) Submission is unreadable.
+
+----------------------------------
+Doxygen Documentation -- MySpell *
+----------------------------------
+
++++>We described myspell and how the our random bst implementation
++++>works with it.
+
+  4) Describes the purpose of the program.
+
+     Describes the usage of the program.
+
+     Explains the general approach used by the program.
+
+     Describes the choice of binary tree implementation.
+
+  3) Missing one of the four items listed for a 4.
+
+  2) Missing two of the four items listed for a 4.
+
+  1) More serious problems.
+
+  0) No content at all.
+
+--------------------------------------
+Doxygen Documentation -- Performance *
+--------------------------------------
+
++++>Our performance is described at the right place and we think that
++++>it includes all of the important informations expected.
+
+  4) Test setups are are clearly described, including but not limited to:
+       Characteristics of the dictionary.
+       Characteristics of the test input.
+       Which computer was used to run the tests.
+       If not a CS machine, the type of computer, compiler,
+         and operating system being used.
+
+     Times are taken from code compiled with -O3,
+       both for this implementation and the old Assignment 10 myspell.
+
+     Interesting conclusions are drawn from the data
+       (e.g., can you explain why the results turned out the way
+       they did?).
+
+  3) Minor problems.
+
+  2) Serious problems, including vague or missing conclusions.
+
+  0) Missing or very incomplete performance writeup.
+
+
+===============================================================================
+SELF ASSESSMENT. Total =    / 5
+===============================================================================
+
++++>We commented every section.
++++>We think our comments show we read through the solution code and
++++>we understand what we did wrong.
++++>Our comments are in the correct place and format.
+
+  5) Every section of the rubric is commented.
+     
+     Comments provide compelling evidence that sample solution was read and
+       compared to submission (e.g., errors in submitted code noted, and
+       correct solutions lauded).
+
+     All comments are in the correct format.
+ 
+  4) Minor issues, such as minor problems with code missed or improper
+       formatting.
+
+  3) Spotted at least half of your errors.
+
+     OR, no attempt at diagnosing mistakes, but they are identified.
+ 
+  2) Hardly anything noticed.
+ 
+  1) Edited the file, but no useful content.
+ 
+  0) Did nothing at all.
+
+
+===============================================================================
+COMBINED SCORE:
+===============================================================================
+
+  Your Scores:
+    SUBMISSION      =    / 12
+    TESTING         =    / 9
+    CORRECTNESS     =    / 20
+    STYLE           =    / 22
+    WRITTEN         =    / 12
+    SELF ASSESSMENT =    / 5
+
+WHERE Combined      = 10.00 * SUBMISSION
+                    + 10.00 * TESTING
+                    + 15.00 * CORRECTNESS
+                    + 20.00 * STYLE
+                    + 15.00 * WRITTEN
+                    + 10.00 * SELF ASSESSMENT
+                    + 20.00 * CONSISTENCY BONUS
+                    + 74.32 @ So its not a percentage
+
+===============================================================================
+GRADED BY:
+REVIEWED BY:
+===============================================================================

@@ -1,0 +1,55 @@
+/**
+\author Lu Wenhao, Wang Xiaotian (wlu-xwang)
+\page performance
+
+\tableofcontents
+
+\section performance
+We ran all tests in knuth in CS Lab computers using O3 flag
+We used the provided ispell.words and smalldict.words
+For the first test, we used the smalldict to spell check the larger dictionary.
+The following are averages after multiple runs.
+
+./myspell -t -d smalldict.words < ispell.words  3.80s user 0.12s system 96% 
+cpu 4.069 total
+./myspell -T -d smalldict.words < ispell.words  1.24s user 0.16s system 89% 
+cpu 1.569 total
+./myspell -h -d smalldict.words < ispell.words  0.52s user 0.11s system 81% 
+cpu 0.780 total
+./myspell -H -d smalldict.words < ispell.words  0.74s user 0.11s system 84% 
+cpu 1.002 total
+
+
+The results were not that surprising. We suspect that our randomized tree
+agorithm is building less than stellar trees, which is causing a much
+longer time in treeset. This is due to random numbers not working correctly.
+Our hashset actually performed better than the build in treeset and hashset. 
+Since there are a lot of unsucessful searches in this test, this seems to
+suggest our hashset has better unsuccessful search performance for large
+string dictonaries. This makes sense because our load factor keeps the hashset reasonable (1-3 elements per bucket usually), so unsuccessful search should 
+be much faster than looping through a treeset. We can't really assume anything 
+else, We still believe in more general tests stdhashset and stdtreeset 
+perform better.
+
+
+
+We also tried some tests on smaller input. We used the large dictionary to 
+check the small dictionary
+
+
+./myspell -t -d ispell.words < smalldict.words  0.04s user 0.00s system 93% 
+cpu 0.043 total
+./myspell -T -d ispell.words < smalldict.words  0.06s user 0.00s system 97% 
+cpu 0.066 total
+./myspell -h -d ispell.words < smalldict.words  0.02s user 0.01s system 95% 
+cpu 0.028 total
+./myspell -H -d ispell.words < smalldict.words  0.01s user 0.01s system 89% 
+cpu 0.024 total
+
+So for small files, it seems stdtreeset has worse performance. Our conclusion
+is that our treeset has decent performance for small documents to check, but 
+larger files yield worse performance. This makes sense to us because when load is low, separate chaining should never hit the same box. The tree is a little slower because when # of nodes is small, there is increased chance that it happens to make a stick. So our conclusion is that for this dictionary reading
+assignment hashset is the better implementation (although of course the tree
+structure can be optimized better)/
+*/
+

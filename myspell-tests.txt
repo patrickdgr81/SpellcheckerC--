@@ -1,0 +1,68 @@
+Author: Lu Wenhao, Wang Xiaotian (wlu-xwang)
+
+Each number is checking a different error, we used ispell.word for all tests
+and typed the test into the command line after running.
+
+The output for each test is right below and indented.
+
+1 Check to make sure that symbols/weird inputs are handled correctly
+  
+  no input:
+
+
+
+  no letters at all:
+  /';.2'#
+
+
+  removing symbols from begin and end:
+  //APPLq//
+    applq: apple apply
+
+  no letters at all and removing symbols:
+  == YoU Lvve me?
+    lvve: live love
+
+  pretty complex sentence:
+  "I wouldn't teel you the secret. (pause) Shhhhh!!!!"
+    wouldn't: 
+    teel: feel heel keel peel reel tell teem teen 
+    shhhhh: 
+
+2 Check that correct words are in dictionary (All words have no output)
+
+  zoo
+  employee
+  employer
+
+3 Check that list of possible spellings is in alphabetical order
+
+  banu
+    banu: band bane bang bank bans 
+  fot
+    fot: cot dot got hot jot lot not pot rot fat fit foe fog for fox 
+
+4 Check that double misspelled words are not repeated
+
+  fot fot
+    fot: cot dot got hot jot lot not pot rot fat fit foe fog for fox 
+
+  fot my name is XiaoTian fot
+    fot: cot dot got hot jot lot not pot rot fat fit foe fog for fox 
+    xiaotian: 
+
+5 Check that all letters are changed to lowercase
+
+  MY NQME IS SAMQ
+    nqme: name 
+    samq: same 
+
+6 Misspelled words are listed in order encountered
+
+  hei now broqn cow jaq
+    hei: hem hen her hew hex hey 
+    broqn: brown 
+    jaq: jab jam jar jaw jay
+
+
+

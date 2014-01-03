@@ -1,0 +1,29 @@
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic   -c -o hashset-cow-test.o hashset-cow-test.cpp
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic   -c -o cow.o cow.cpp
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic -o hashset-cow-test hashset-cow-test.o cow.o -lgtest -lgtest_main
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic   -c -o treeset-cow-test.o treeset-cow-test.cpp
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic -o treeset-cow-test treeset-cow-test.o cow.o -lgtest -lgtest_main
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic   -c -o stdhashset-cow-test.o stdhashset-cow-test.cpp
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic -o stdhashset-cow-test stdhashset-cow-test.o cow.o -lgtest -lgtest_main
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic   -c -o stdtreeset-cow-test.o stdtreeset-cow-test.cpp
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic -o stdtreeset-cow-test stdtreeset-cow-test.o cow.o -lgtest -lgtest_main
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic   -c -o stdtreeset-test.o stdtreeset-test.cpp
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic -o stdtreeset-test stdtreeset-test.o -lgtest -lgtest_main
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic   -c -o stdhashset-test.o stdhashset-test.cpp
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic   -c -o stringhash.o stringhash.cpp
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic -o stdhashset-test stdhashset-test.o stringhash.o -lgtest -lgtest_main
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic   -c -o treeset-test.o treeset-test.cpp
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic -o treeset-test treeset-test.o -lgtest -lgtest_main
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic   -c -o hashset-test.o hashset-test.cpp
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic -o hashset-test hashset-test.o stringhash.o -lgtest -lgtest_main
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic   -c -o myspell.o myspell.cpp
+cs70-c++ -g -Wall -Wextra -Wno-deprecated -pedantic -o myspell myspell.o stringhash.o
+Making test code...
+cs70-c++ -g -Wall -Wextra -pedantic   -DUSE_HASHSET -c -o cs70-hashset-test.o cs70-set-test.cpp
+cs70-c++ -g -Wall -Wextra -pedantic   -o cs70-hashset-test cs70-hashset-test.o 
+cs70-c++ -g -Wall -Wextra -pedantic   -DUSE_TREESET -c -o cs70-treeset-test.o cs70-set-test.cpp
+cs70-c++ -g -Wall -Wextra -pedantic   -o cs70-treeset-test cs70-treeset-test.o 
+cs70-c++ -g -Wall -Wextra -pedantic   -DUSE_STDTREESET -c -o cs70-stdtreeset-test.o cs70-set-test.cpp
+cs70-c++ -g -Wall -Wextra -pedantic   -o cs70-stdtreeset-test cs70-stdtreeset-test.o 
+cs70-c++ -g -Wall -Wextra -pedantic   -DUSE_STDHASHSET -c -o cs70-stdhashset-test.o cs70-set-test.cpp
+cs70-c++ -g -Wall -Wextra -pedantic   -o cs70-stdhashset-test cs70-stdhashset-test.o 

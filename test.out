@@ -1,0 +1,103 @@
+Test 1: OK    		(Basic HashSet test (using HashSet<size_t>))
+cout>	Testing HashSet, size = 4096
+cout>	Filling set...
+cout>	Searching...
+cout>	Done (0 assertion failures).
+
+Test 2: OK    		(Basic TreeSet test (using TreeSet<size_t>))
+cout>	Testing TreeSet, size = 4096
+cout>	Filling set...
+cout>	Searching...
+cout>	Final tree height okay!
+cout>	Done (0 assertion failures).
+
+Test 3: OK    		(Basic StdTreeSet test (using StdTreeSet<size_t>))
+cout>	Testing StdTreeSet, size = 4096
+cout>	Filling set...
+cout>	Searching...
+cout>	Done (0 assertion failures).
+
+Test 4: OK    		(Basic StdHashSet test (using StdHashSet<size_t>))
+cout>	Testing StdHashSet, size = 4096
+cout>	Filling set...
+cout>	Searching...
+cout>	Done (0 assertion failures).
+
+Test 5: OK    		(myspell -d -t  with tiny dictionary checking itself)
+cerr>	Nodes 662 height 34 [no trailing newline]
+
+Test 6: OK    		(myspell -d -h  with tiny dictionary checking itself)
+cerr>	6 expansions, load factor 0.608456, 173 collisions, longest run 5 [no trailing newline]
+
+Test 7: OK    		(myspell -d -T  with tiny dictionary checking itself)
+cerr>	No statistics available.
+
+Test 8: OK    		(myspell -d -H  with tiny dictionary checking itself)
+cerr>	No statistics available.
+
+Test 9: OK    		(myspell -d -t with large dictionary checking subset)
+cerr>	Nodes 264692 height 57 [no trailing newline]
+
+Test 10: OK    		(myspell -d -h with large dictionary checking subset)
+cerr>	15 expansions, load factor 0.475162, 54176 collisions, longest run 6 [no trailing newline]
+
+Test 11: OK    		(myspell -d -T with large dictionary checking subset)
+cerr>	No statistics available.
+
+Test 12: OK    		(myspell -d -H with large dictionary checking subset)
+cerr>	No statistics available.
+
+Test 13: OK    		(TreeSet space leak test)
+cout>	Testing TreeSet, size = 32768, 10 rounds
+cout>	Filling set...
+cout>	Filling set...
+cout>	Filling set...
+	[ ... etc. ... ]
+
+Test 14: OK    		(TreeSet null-tree print test (using TreeSet<size_t>))
+cout>	Testing TreeSet, size = 0
+cout>	Filling set...
+cout>	Contents: -
+cout>	Searching...
+	[ ... etc. ... ]
+
+Test 15: OK    		(TreeSet one-element tree print test (using TreeSet<size_t>))
+cout>	Testing TreeSet, size = 1
+cout>	Filling set...
+cout>	Contents: (-, 100, -)
+cout>	Searching...
+	[ ... etc. ... ]
+
+Test 16: OK    		(TreeSet multi-element tree print test (using TreeSet<size_t>))
+cout>	Testing TreeSet, size = 177
+cout>	Filling set...
+cout>	Contents: 100 112 122 127 134 136 139 166 177 206 215 219 232 235 252 
+cout>	  259 267 283 286 296 306 333 351 364 373 416 447 471 474 479 486 499 
+	[ ... etc. ... ]
+
+Test 17: OK    		(Basic HashSet test (using HashSet<size_t> + valgrind))
+cout>	Testing HashSet, size = 4096
+cout>	Filling set...
+cout>	Searching...
+cout>	Done (0 assertion failures).
+
+Test 18: OK    		(Basic TreeSet test (using TreeSet<size_t> + valgrind))
+cout>	Testing TreeSet, size = 4096
+cout>	Filling set...
+cout>	Searching...
+cout>	Final tree height okay!
+cout>	Done (0 assertion failures).
+
+Test 19: OK    		(Basic StdTreeSet test (using StdTreeSet<size_t> + valgrind))
+cout>	Testing StdTreeSet, size = 4096
+cout>	Filling set...
+cout>	Searching...
+cout>	Done (0 assertion failures).
+
+Test 20: OK    		(Basic StdHashSet test (using StdHashSet<size_t> + valgrind))
+cout>	Testing StdHashSet, size = 4096
+cout>	Filling set...
+cout>	Searching...
+cout>	Done (0 assertion failures).
+
+Test 21: OK    		(myspell -t with tiny dictionary checking itself (+ valgrind))

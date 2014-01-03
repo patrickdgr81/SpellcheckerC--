@@ -1,0 +1,6 @@
+mainpage.dox:
+  - File uses TABs (expanding TABs to spaces is safer)
+performance.dox, line 29:
+  - Is 155 characters long (> 80)
+performance.dox, line 51:
+  - Is 310 characters long (> 80)

@@ -1,0 +1,85 @@
+/**
+\author Lu Wenhao, Wang Xiaotian (wlu-xwang)
+\mainpage HW11: MySpell and Treesets
+
+\tableofcontents
+
+\section intro_sec Introduction
+
+The myspell program checks the spelling of input words against a
+user-specified dictionary. Suggested corrections are outputted to
+the screen. The simplest way to do so is to check if a word is in
+the dictionary; if not then see what words are most similar to
+it. However, for this program to be useful, a large dictionary of
+correct words is necessary. An efficient data structure must be
+used or the program is useless.
+
+The user can chose which data structure myspell uses. The choices
+are HashSet, TreeSet, std::hashtable, and std::treeset. HashSet
+uses separate chaining and Treeset use Randomized Binary Search
+Trees. std::hashtable and std::treeset are both built into
+the C++ library.
+
+We liked randomized binary tree implementation because it had
+good (1.38x perfect tree to be exact) performance and was very intuitive 
+for us to implement. The way we implemented the tree was have the right
+child be greater than the root and left child be less than the root.
+When we insert, we go down the tree to where the insertee should go, 
+but at each node there is a random chance that we make the insertee the 
+root at that location instead. The average depth is 1.38 times the ideal
+depth on average, but because it is random it can potentially be much
+better.
+
+\section design_sec Design
+
+myspell.cpp handles Interface and I/O issues. It provides
+option processing, error reporting and the main loop that reads standard
+input and printing of corrections. myspell.cpp also reads in the
+dictionary, checks, words, and produces corrections.
+
+\section use_sec Usage
+
+     myspell [-d] [-t] dict
+
+ The optional flag -d will produce statistics about the data structure
+ used to represent the dictionary. The -t flag determines what data
+ structure. -t is treeSet, -T is std::treeset, -h is hashset, -H is
+ std::hashset. If more than one data member flag is selected, the last
+ one will be used.
+
+ The HashTable statistics print in the following format:
+  
+     n expansions, load factor f, c collisions, longest run l
+
+ where n, c, and l are integers, and f is a floating-point (double) number.
+ 
+ This output should be followed by a newline.
+
+ The TreeSet statistics print in the following format:
+ 	 n nodes, height h
+ where n is the number of nodes (words in dictionary) and h is the height
+ of the tree.
+
+ The positional argument dict is the name of the dictionary file. This
+ file must be a sequence of unique lowercase words separated by whitespace,
+ where a 'word' begins and ends with a letter and contains no spaces. Words
+ may occur in any order in the dictionary file, but should not be
+ duplicated. There can be more than one dictionary provided (they will
+ be merged), but the user must provide a dictionary. 
+
+\section out_sec Output
+
+After the program is run, any word in misspelledFile that is not
+found in dictionaryFile will be outputted to cout in the following
+format:
+
+     misspelledWord: correction1 correction2 correction3 . . .
+
+If there are no suggested corrections then only the misspelled word
+and a colon is outputted.
+
+\section TreeSet Performance
+
+See \ref performance for more information
+
+*/
